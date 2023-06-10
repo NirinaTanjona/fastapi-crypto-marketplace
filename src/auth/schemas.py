@@ -8,7 +8,7 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    id: str | None = None
+    username: str
 
 
 class UserBase(BaseModel):
@@ -22,7 +22,7 @@ class UserCreate(UserBase):
 
 class User(UserBase):
     id: UUID
-    is_active: bool
+    is_active: bool = False
 
-    class config:
+    class Config:
         orm_mode = True
